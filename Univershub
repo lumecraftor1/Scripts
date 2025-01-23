@@ -1,6 +1,6 @@
 -- Game list with Game IDs (PlaceIds) and corresponding script URLs
 local gameScripts = {
-    [100902716985467] = "https://raw.githubusercontent.com/lumecraftor1/Scripts/refs/heads/main/bee_master_simulator.lua",  -- Bee Master Simulator
+    [100902716985467] = "https://raw.githubusercontent.com/lumecraftor1/Script/refs/heads/main/beemaster.lua",  -- Bee Master Simulator
 }
 
 -- Check if the current game is in the list
@@ -8,33 +8,28 @@ local gameId = game.PlaceId
 local scriptURL = gameScripts[gameId]
 
 if scriptURL then
-    -- Notify the player that the script is loading
+    -- Notify the player
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Univers Hub Notification",
         Text = "Game found! The script is loading.",
         Duration = 5
     })
-
-    -- Try to load and execute the script
+    
+    -- Load and execute the script
     local success, result = pcall(function()
-        local scriptContent = game:HttpGet(scriptURL)  -- Fetch the script
-        if scriptContent then
-            loadstring(scriptContent)()  -- Execute the script if it's fetched successfully
-        else
-            error("Script content is empty.")
-        end
+        loadstring(game:HttpGet(scriptURL))()
     end)
-
-    -- Handle any errors during execution
+    
     if not success then
+        -- If there was an error loading the script
         game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = "Error",
-            Text = "Failed to load the script: " .. result,
+            Text = "Failed to load the script.",
             Duration = 5
         })
     end
 else
-    -- If the game is not found in the list, show an error
+    -- If the game is not found in the list
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Error",
         Text = "Game script not found in the list.",
