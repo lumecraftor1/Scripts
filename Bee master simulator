@@ -1,21 +1,29 @@
 local _0x7b93 = {
-    ["\72\101\97\108\108"] = "a",
-    ["\99\111\100\101"] = "b",
-    ["\116\104\114\111\119"] = "c",
-    ["\101\100\99\101"] = "d",
-    ["\110\111\116\105\102\121"] = "e"
+    ["\72\101\97\108\108"] = "a",  -- "a"
+    ["\99\111\100\101"] = "b",    -- "b"
+    ["\116\104\114\111\119"] = "c", -- "c"
+    ["\101\100\99\101"] = "d",    -- "d"
+    ["\110\111\116\105\102\121"] = "e" -- "e"
 }
 
+-- Function for obfuscation of a string
 local _0x4956 = function(_0x28ab)
-    local _0x77f1 = string.sub(_0x28ab, 1, 1).."("..string.sub(_0x28ab, 2)..")"
-    return _0x77f1
+    return string.sub(_0x28ab, 1, 1).."("..string.sub(_0x28ab, 2)..")"
 end
 
-local _0x4932 = function(_0x1a30)
+-- Main script loading function
+local _0x4932 = function()
+    -- Creating the window name for Univers Hub
     local _0x301f = _0x7b93["\72\101\97\108\108"].._0x7b93["\101\100\99\101"].." ".."| ".."Bee Master Simulator"
-    local _0x3282 = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+    local _0x3282 = loadstring(game:HttpGet('https://sirius.menu/rayfield'))() -- Rayfield API for UI
     
-    -- Create Window
+    -- Check if Rayfield is loaded
+    if not _0x3282 then
+        warn("Rayfield not loaded successfully.")
+        return
+    end
+    
+    -- Create window in Rayfield UI
     local _0x36f5 = _0x3282["CreateWindow"]({
         Name = _0x301f,
         LoadingTitle = "🌌 ".._0x4956("Loading Univers Hub... 🌌"),
@@ -29,15 +37,15 @@ local _0x4932 = function(_0x1a30)
     _0x2d87["CreateSection"]("Welcome to Univers Hub!")
     _0x2d87["CreateParagraph"]({
         Title = "🌟 About",
-        Content = _0x4956("Univers Hub is designed to enhance your Bee Master Simulator experience with powerful and easy-to-use features.")
+        Content = _0x4956("Univers Hub enhances your Bee Master Simulator experience with powerful, easy-to-use features.")
     })
 
-    -- Main Tab
+    -- Main Tab for farming features
     local _0x5565 = _0x36f5["CreateTab"]("🌟 Main", nil)
     _0x5565["CreateSection"]("Farm Features")
 
-    -- Dropdown for egg selection
-    local _0x2fd4 = {["Spawn Hive Egg"] = "631f4d8de6bb46b7b8ec92a9738fd4b02"}
+    -- Egg Selection Dropdown
+    local _0x2fd4 = {["Spawn Hive Egg"] = "631f4d8de6bb46b7b8ec92a9738fd4b02"} -- Example egg ID
     local _0x71ae = nil
     local _0x1a0c = false
 
@@ -65,13 +73,11 @@ local _0x4932 = function(_0x1a30)
                 Content = _0x1a0c and _0x4956("Auto Hatch Enabled") or _0x4956("Auto Hatch Disabled"),
                 Duration = 3
             })
+            
+            -- Start auto-hatching process
             while _0x1a0c do
                 if _0x71ae then
-                    local _0x431e = {
-                        [1] = _0x71ae,
-                        [2] = "open1",
-                        [3] = {}
-                    }
+                    local _0x431e = { [1] = _0x71ae, [2] = "open1", [3] = {} }
                     game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Hatch"):WaitForChild("EggHatch"):InvokeServer(unpack(_0x431e))
                 end
                 task.wait(0.5)
@@ -79,7 +85,7 @@ local _0x4932 = function(_0x1a30)
         end
     })
 
-    -- Machines Section
+    -- Machine Interactions (Golden, Rainbow, Combine)
     _0x5565["CreateSection"]("Machines")
     _0x5565["CreateButton"]({
         Name = "Open Golden Machine",
@@ -102,7 +108,7 @@ local _0x4932 = function(_0x1a30)
         end
     })
 
-    -- Other Features Section
+    -- Other Features (Upgrades, Staff Shop, etc.)
     _0x5565["CreateSection"]("Other Features")
     _0x5565["CreateButton"]({
         Name = "Open Upgrades",
@@ -125,9 +131,11 @@ local _0x4932 = function(_0x1a30)
         end
     })
 
-    -- Miscellaneous Tab
+    -- Miscellaneous Tab (Player Tweaks)
     local _0x505d = _0x36f5["CreateTab"]("🖇️ Miscellaneous", nil)
     _0x505d["CreateSection"]("Player Tweaks")
+
+    -- Speed Slider
     _0x505d["CreateSlider"]({
         Name = "Speed Power",
         Range = {16, 100},
@@ -143,6 +151,7 @@ local _0x4932 = function(_0x1a30)
         end
     })
 
+    -- Jump Power Slider
     _0x505d["CreateSlider"]({
         Name = "Jump Power",
         Range = {50, 300},
@@ -158,7 +167,7 @@ local _0x4932 = function(_0x1a30)
         end
     })
 
-    -- Community Tab
+    -- Community Tab (Copy Discord Link)
     local _0x13a7 = _0x36f5["CreateTab"]("🎉 Community", nil)
     _0x13a7["CreateSection"]("Join Us")
     _0x13a7["CreateParagraph"]({
@@ -178,7 +187,7 @@ local _0x4932 = function(_0x1a30)
         end
     })
 
-    -- Status Tab
+    -- Status Tab (Player Status)
     local _0x3ca7 = _0x36f5["CreateTab"]("🚦 Status", nil)
     _0x3ca7["CreateSection"]("Player Status")
     _0x3ca7["CreateParagraph"]({
@@ -186,7 +195,7 @@ local _0x4932 = function(_0x1a30)
         Content = "Coming soon: See your current stats and more here!"
     })
 
-    -- Notify script loaded
+    -- Notification after script loads
     _0x3282:Notify({
         Title = "Script Loaded",
         Content = "Welcome to 🌌 Univers Hub 🌌 for Bee Master Simulator! 🐝",
@@ -203,7 +212,7 @@ local _0x4932 = function(_0x1a30)
     })
 end
 
--- Check if the current game is Bee Master Simulator
+-- Ensure that the script runs only for the correct game
 if game.PlaceId == 100902716985467 then
     pcall(_0x4932)
 else
