@@ -1,1 +1,211 @@
-local _0x7b93={["\72\101\97\108\108"]="a",["\99\111\100\101"]="b",["\116\104\114\111\119"]="c",["\101\100\99\101"]="d",["\110\111\116\105\102\121"]="e"};local _0x4956=function(_0x28ab)local _0x77f1=string.sub(_0x28ab,1,1).."("..string.sub(_0x28ab,2)..")"return _0x77f1 end;local _0x4932=function(_0x1a30)local _0x301f=_0x7b93["\72\101\97\108\108"].._0x7b93["\101\100\99\101"].." ".."| ".."Bee Master Simulator"local _0x3282=loadstring(game:HttpGet('https://sirius.menu/rayfield'))()local _0x36f5=_0x3282["CreateWindow"]({Name=_0x301f,LoadingTitle="🌌 ".._0x4956("Loading Univers Hub... 🌌"),LoadingSubtitle="By 🌟 Univers Team 🌌",ConfigurationSaving={Enabled=true,FolderName="UniversHubConfigs",FileName="BeeMasterSimulator"},Discord={Enabled=true,Invite="PwbtqEDT",RememberJoins=true}})local _0x2d87=_0x36f5["CreateTab"]("🏠 Home",nil)_0x2d87["CreateSection"]("Welcome to Univers Hub!")_0x2d87["CreateParagraph"]({Title="🌟 About",Content=_0x4956("Univers Hub is designed to enhance your Bee Master Simulator experience with powerful and easy-to-use features.")})local _0x5565=_0x36f5["CreateTab"]("🌟 Main",nil)_0x5565["CreateSection"]("Farm Features")local _0x2fd4={["Spawn Hive Egg"]="631f4d8de6bb46b7b8ec92a9738fd4b02"}local _0x71ae=nil;local _0x1a0c=false;_0x5565["CreateDropdown"]({Name=_0x4956("Select Egg"),Options={"Spawn Hive Egg"},CurrentOption=nil,MultipleOptions=false,Flag="Dropdown1",Callback=function(_0x5cfe)_0x71ae=_0x2fd4[_0x5cfe] _0x3282:Notify({Title="Egg Selected",Content="You selected: ".._0x5cfe,Duration=3})end})_0x5565["CreateToggle"]({Name=_0x4956("Auto Hatch"),CurrentValue=false,Flag="Toggle1",Callback=function(_0x43b7)_0x1a0c=_0x43b7 _0x3282:Notify({Title="Auto Hatch",Content=_0x1a0c and _0x4956("Auto Hatch Enabled")or _0x4956("Auto Hatch Disabled"),Duration=3})while _0x1a0c do if _0x71ae then local _0x431e={ [1]=_0x71ae,[2]="open1",[3]={}}game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Hatch"):WaitForChild("EggHatch"):InvokeServer(unpack(_0x431e))end task.wait(0.5)end end})_0x5565["CreateSection"]("Machines")_0x5565["CreateButton"]({Name="Open Golden Machine",Callback=function()game:GetService("Players").LocalPlayer.PlayerGui.Shiny.Enabled=trueend})_0x5565["CreateButton"]({Name="Open Rainbow Machine",Callback=function()game:GetService("Players").LocalPlayer.PlayerGui.Rainbow.Enabled=trueend})_0x5565["CreateButton"]({Name="Open Combine Machine",Callback=function()game:GetService("Players").LocalPlayer.PlayerGui.Combine.Enabled=trueend})_0x5565["CreateSection"]("Other Features")_0x5565["CreateButton"]({Name="Open Upgrades",Callback=function()game:GetService("Players").LocalPlayer.PlayerGui.Upgrades.Enabled=trueend})_0x5565["CreateButton"]({Name="Open Staff Shop",Callback=function()game:GetService("Players").LocalPlayer.PlayerGui.StaffShop.Enabled=trueend})_0x5565["CreateButton"]({Name="Open Index",Callback=function()game:GetService("Players").LocalPlayer.PlayerGui.Index.Enabled=trueend})local _0x505d=_0x36f5["CreateTab"]("🖇️ Miscellaneous",nil)_0x505d["CreateSection"]("Player Tweaks")_0x505d["CreateSlider"]({Name="Speed Power",Range={16,100},Increment=1,Suffix="Speed",CurrentValue=16,Flag="SpeedSlider",Callback=function(_0x4536)local _0x3fd7=game.Players.LocalPlayer if _0x3fd7 and _0x3fd7.Character and _0x3fd7.Character:FindFirstChildOfClass("Humanoid")then _0x3fd7.Character:FindFirstChildOfClass("Humanoid").WalkSpeed=_0x4536 end end})_0x505d["CreateSlider"]({Name="Jump Power",Range={50,300},Increment=10,Suffix="Power",CurrentValue=100,Flag="JumpSlider",Callback=function(_0x4536)local _0x3fd7=game.Players.LocalPlayer if _0x3fd7 and _0x3fd7.Character and _0x3fd7.Character:FindFirstChildOfClass("Humanoid")then _0x3fd7.Character:FindFirstChildOfClass("Humanoid").JumpPower=_0x4536 end end})local _0x13a7=_0x36f5["CreateTab"]("🎉 Community",nil)_0x13a7["CreateSection"]("Join Us")_0x13a7["CreateParagraph"]({Title="Join the Univers Hub Community!",Content="Click the button below to copy our Discord link to your clipboard."})_0x13a7["CreateButton"]({Name="Copy Discord Link",Callback=function()setclipboard("https://discord.gg/PwbtqEDT")_0x3282:Notify({Title="Link Copied!",Content="Discord link has been copied to your clipboard.",Duration=3})end})local _0x3ca7=_0x36f5["CreateTab"]("🚦 Status",nil)_0x3ca7["CreateSection"]("Player Status")_0x3ca7["CreateParagraph"]({Title="Status",Content="Coming soon: See your current stats and more here!"})_0x3282:Notify({Title="Script Loaded",Content="Welcome to 🌌 Univers Hub 🌌 for Bee Master Simulator! 🐝",Duration=5,Image=13047715178,Actions={Ignore={Name="Okay!",Callback=function()print("User acknowledged notification.")end}}})else warn("This script is not compatible with the current game.")end
+local _0x7b93 = {
+    ["\72\101\97\108\108"] = "a",
+    ["\99\111\100\101"] = "b",
+    ["\116\104\114\111\119"] = "c",
+    ["\101\100\99\101"] = "d",
+    ["\110\111\116\105\102\121"] = "e"
+}
+
+local _0x4956 = function(_0x28ab)
+    local _0x77f1 = string.sub(_0x28ab, 1, 1).."("..string.sub(_0x28ab, 2)..")"
+    return _0x77f1
+end
+
+local _0x4932 = function(_0x1a30)
+    local _0x301f = _0x7b93["\72\101\97\108\108"].._0x7b93["\101\100\99\101"].." ".."| ".."Bee Master Simulator"
+    local _0x3282 = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+    
+    -- Create Window
+    local _0x36f5 = _0x3282["CreateWindow"]({
+        Name = _0x301f,
+        LoadingTitle = "🌌 ".._0x4956("Loading Univers Hub... 🌌"),
+        LoadingSubtitle = "By 🌟 Univers Team 🌌",
+        ConfigurationSaving = {Enabled = true, FolderName = "UniversHubConfigs", FileName = "BeeMasterSimulator"},
+        Discord = {Enabled = true, Invite = "PwbtqEDT", RememberJoins = true}
+    })
+    
+    -- Home Tab
+    local _0x2d87 = _0x36f5["CreateTab"]("🏠 Home", nil)
+    _0x2d87["CreateSection"]("Welcome to Univers Hub!")
+    _0x2d87["CreateParagraph"]({
+        Title = "🌟 About",
+        Content = _0x4956("Univers Hub is designed to enhance your Bee Master Simulator experience with powerful and easy-to-use features.")
+    })
+
+    -- Main Tab
+    local _0x5565 = _0x36f5["CreateTab"]("🌟 Main", nil)
+    _0x5565["CreateSection"]("Farm Features")
+
+    -- Dropdown for egg selection
+    local _0x2fd4 = {["Spawn Hive Egg"] = "631f4d8de6bb46b7b8ec92a9738fd4b02"}
+    local _0x71ae = nil
+    local _0x1a0c = false
+
+    _0x5565["CreateDropdown"]({
+        Name = _0x4956("Select Egg"),
+        Options = {"Spawn Hive Egg"},
+        CurrentOption = nil,
+        MultipleOptions = false,
+        Flag = "Dropdown1",
+        Callback = function(_0x5cfe)
+            _0x71ae = _0x2fd4[_0x5cfe]
+            _0x3282:Notify({Title = "Egg Selected", Content = "You selected: ".._0x5cfe, Duration = 3})
+        end
+    })
+
+    -- Auto Hatch Toggle
+    _0x5565["CreateToggle"]({
+        Name = _0x4956("Auto Hatch"),
+        CurrentValue = false,
+        Flag = "Toggle1",
+        Callback = function(_0x43b7)
+            _0x1a0c = _0x43b7
+            _0x3282:Notify({
+                Title = "Auto Hatch",
+                Content = _0x1a0c and _0x4956("Auto Hatch Enabled") or _0x4956("Auto Hatch Disabled"),
+                Duration = 3
+            })
+            while _0x1a0c do
+                if _0x71ae then
+                    local _0x431e = {
+                        [1] = _0x71ae,
+                        [2] = "open1",
+                        [3] = {}
+                    }
+                    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Hatch"):WaitForChild("EggHatch"):InvokeServer(unpack(_0x431e))
+                end
+                task.wait(0.5)
+            end
+        end
+    })
+
+    -- Machines Section
+    _0x5565["CreateSection"]("Machines")
+    _0x5565["CreateButton"]({
+        Name = "Open Golden Machine",
+        Callback = function()
+            game:GetService("Players").LocalPlayer.PlayerGui.Shiny.Enabled = true
+        end
+    })
+
+    _0x5565["CreateButton"]({
+        Name = "Open Rainbow Machine",
+        Callback = function()
+            game:GetService("Players").LocalPlayer.PlayerGui.Rainbow.Enabled = true
+        end
+    })
+
+    _0x5565["CreateButton"]({
+        Name = "Open Combine Machine",
+        Callback = function()
+            game:GetService("Players").LocalPlayer.PlayerGui.Combine.Enabled = true
+        end
+    })
+
+    -- Other Features Section
+    _0x5565["CreateSection"]("Other Features")
+    _0x5565["CreateButton"]({
+        Name = "Open Upgrades",
+        Callback = function()
+            game:GetService("Players").LocalPlayer.PlayerGui.Upgrades.Enabled = true
+        end
+    })
+
+    _0x5565["CreateButton"]({
+        Name = "Open Staff Shop",
+        Callback = function()
+            game:GetService("Players").LocalPlayer.PlayerGui.StaffShop.Enabled = true
+        end
+    })
+
+    _0x5565["CreateButton"]({
+        Name = "Open Index",
+        Callback = function()
+            game:GetService("Players").LocalPlayer.PlayerGui.Index.Enabled = true
+        end
+    })
+
+    -- Miscellaneous Tab
+    local _0x505d = _0x36f5["CreateTab"]("🖇️ Miscellaneous", nil)
+    _0x505d["CreateSection"]("Player Tweaks")
+    _0x505d["CreateSlider"]({
+        Name = "Speed Power",
+        Range = {16, 100},
+        Increment = 1,
+        Suffix = "Speed",
+        CurrentValue = 16,
+        Flag = "SpeedSlider",
+        Callback = function(_0x4536)
+            local _0x3fd7 = game.Players.LocalPlayer
+            if _0x3fd7 and _0x3fd7.Character and _0x3fd7.Character:FindFirstChildOfClass("Humanoid") then
+                _0x3fd7.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = _0x4536
+            end
+        end
+    })
+
+    _0x505d["CreateSlider"]({
+        Name = "Jump Power",
+        Range = {50, 300},
+        Increment = 10,
+        Suffix = "Power",
+        CurrentValue = 100,
+        Flag = "JumpSlider",
+        Callback = function(_0x4536)
+            local _0x3fd7 = game.Players.LocalPlayer
+            if _0x3fd7 and _0x3fd7.Character and _0x3fd7.Character:FindFirstChildOfClass("Humanoid") then
+                _0x3fd7.Character:FindFirstChildOfClass("Humanoid").JumpPower = _0x4536
+            end
+        end
+    })
+
+    -- Community Tab
+    local _0x13a7 = _0x36f5["CreateTab"]("🎉 Community", nil)
+    _0x13a7["CreateSection"]("Join Us")
+    _0x13a7["CreateParagraph"]({
+        Title = "Join the Univers Hub Community!",
+        Content = "Click the button below to copy our Discord link to your clipboard."
+    })
+
+    _0x13a7["CreateButton"]({
+        Name = "Copy Discord Link",
+        Callback = function()
+            setclipboard("https://discord.gg/PwbtqEDT")
+            _0x3282:Notify({
+                Title = "Link Copied!",
+                Content = "Discord link has been copied to your clipboard.",
+                Duration = 3
+            })
+        end
+    })
+
+    -- Status Tab
+    local _0x3ca7 = _0x36f5["CreateTab"]("🚦 Status", nil)
+    _0x3ca7["CreateSection"]("Player Status")
+    _0x3ca7["CreateParagraph"]({
+        Title = "Status",
+        Content = "Coming soon: See your current stats and more here!"
+    })
+
+    -- Notify script loaded
+    _0x3282:Notify({
+        Title = "Script Loaded",
+        Content = "Welcome to 🌌 Univers Hub 🌌 for Bee Master Simulator! 🐝",
+        Duration = 5,
+        Image = 13047715178,
+        Actions = {
+            Ignore = {
+                Name = "Okay!",
+                Callback = function()
+                    print("User acknowledged notification.")
+                end
+            }
+        }
+    })
+end
+
+-- Check if the current game is Bee Master Simulator
+if game.PlaceId == 100902716985467 then
+    pcall(_0x4932)
+else
+    warn("This script is not compatible with the current game.")
+end
