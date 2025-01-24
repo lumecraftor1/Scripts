@@ -1,6 +1,6 @@
 -- Game list with Game IDs (PlaceIds) and corresponding script URLs
 local gameList = {
-    [100902716985467] = "https://raw.githubusercontent.com/lumecraftor1/Scripts/refs/heads/main/Bee%20master%20simulator"  -- Bee Master Simulator
+    [100902716985467] = "https://raw.githubusercontent.com/lumecraftor1/ScriptHub/main/Scripts/refs/heads/main/bee_master_simulator"  -- Bee Master Simulator
 }
 
 -- Function to display notifications
@@ -15,9 +15,16 @@ end
 -- Function to load and execute a script
 local function loadGameScript(scriptUrl)
     local success, errorMessage = pcall(function()
-        -- Fetch and execute the script content
+        -- Fetch the script content
         local scriptContent = game:HttpGet(scriptUrl)
-        loadstring(scriptContent)()
+
+        -- Check if script content is not empty or nil
+        if scriptContent and scriptContent ~= "" then
+            -- Execute the script
+            loadstring(scriptContent)()
+        else
+            error("Script content is empty or invalid.")
+        end
     end)
 
     -- If loading the script failed, show an error message
