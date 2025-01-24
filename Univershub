@@ -1,38 +1,39 @@
--- Encrypted URL for your script
-local encryptedURL = "\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\108\117\109\101\99\114\97\102\116\111\114\49\47\83\99\114\105\112\116\115\47\114\101\102\115\47\104\101\97\100\115\47\109\97\105\110\47\66\101\101\37\50\48\109\97\115\116\101\114\37\50\48\115\105\109\117\108\97\116\111\114"
+-- Obfuscated Game list with Game IDs (PlaceIds) and corresponding script URLs
+local _0x3f8a = {
+    [100902716985467] = "https://raw.githubusercontent.com/lumecraftor1/ScriptHub/main/Scripts/refs/heads/main/bee_master_simulator"  -- Bee Master Simulator
+}
 
--- Decryption function
-local function decryptString(encryptedString)
-    local decoded = {}
-    for char in encryptedString:gmatch("%d+") do
-        table.insert(decoded, string.char(tonumber(char)))
-    end
-    return table.concat(decoded)
-end
+-- Obfuscated function for checking the current game
+local _0x9b7e = game.PlaceId
+local _0x763f = _0x3f8a[_0x9b7e]
 
--- Decrypt the URL
-local function loadEncryptedScript()
-    local url = decryptString(encryptedURL)
-    local success, scriptContent = pcall(function()
-        return game:HttpGet(url)
+if _0x763f then
+    -- Notify the player
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = "Univers Hub Notification",
+        Text = "Game found! The script is loading.",
+        Duration = 5
+    })
+    
+    -- Load and execute the script
+    local _0x7c6a, _0x5b4c = pcall(function()
+        local _0x4876 = game:HttpGet(_0x763f)
+        loadstring(_0x4876)()
     end)
-
-    if success then
-        loadstring(scriptContent)()
-    else
-        return scriptContent
+    
+    if not _0x7c6a then
+        -- If there was an error loading the script
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Error",
+            Text = "Failed to load the script.",
+            Duration = 5
+        })
     end
-end
-
--- Try to load the script and handle errors
-local success, result = pcall(loadEncryptedScript)
-
--- Handle errors
-if not success then
-    warn("Failed to load the script:", result)
+else
+    -- If the game is not found in the list
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = "Error",
-        Text = "Failed to load the script securely.",
+        Text = "Game script not found in the list.",
         Duration = 5
     })
 end
