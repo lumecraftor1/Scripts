@@ -1,39 +1,42 @@
--- Obfuscated Game list with Game IDs (PlaceIds) and corresponding script URLs
-local _0x3f8a = {
+-- Game list with Game IDs (PlaceIds) and corresponding script URLs
+local gameList = {
     [100902716985467] = "https://raw.githubusercontent.com/lumecraftor1/ScriptHub/main/Scripts/refs/heads/main/bee_master_simulator"  -- Bee Master Simulator
 }
 
--- Obfuscated function for checking the current game
-local _0x9b7e = game.PlaceId
-local _0x763f = _0x3f8a[_0x9b7e]
+-- Function to display notifications
+local function showNotification(title, text, duration)
+    game:GetService("StarterGui"):SetCore("SendNotification", {
+        Title = title,
+        Text = text,
+        Duration = duration
+    })
+end
 
-if _0x763f then
-    -- Notify the player
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Univers Hub Notification",
-        Text = "Game found! The script is loading.",
-        Duration = 5
-    })
-    
-    -- Load and execute the script
-    local _0x7c6a, _0x5b4c = pcall(function()
-        local _0x4876 = game:HttpGet(_0x763f)
-        loadstring(_0x4876)()
+-- Function to load and execute a script
+local function loadGameScript(scriptUrl)
+    local success, errorMessage = pcall(function()
+        -- Fetch and execute the script content
+        local scriptContent = game:HttpGet(scriptUrl)
+        loadstring(scriptContent)()
     end)
-    
-    if not _0x7c6a then
-        -- If there was an error loading the script
-        game:GetService("StarterGui"):SetCore("SendNotification", {
-            Title = "Error",
-            Text = "Failed to load the script.",
-            Duration = 5
-        })
+
+    -- If loading the script failed, show an error message
+    if not success then
+        showNotification("Error", "Failed to load the script: " .. errorMessage, 5)
     end
+end
+
+-- Main logic for checking the game and loading the script
+local currentPlaceId = game.PlaceId
+local scriptUrl = gameList[currentPlaceId]
+
+if scriptUrl then
+    -- Notify the player that the game was found and the script is loading
+    showNotification("Univers Hub Notification", "Game found! The script is loading.", 5)
+
+    -- Load the game script
+    loadGameScript(scriptUrl)
 else
-    -- If the game is not found in the list
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = "Error",
-        Text = "Game script not found in the list.",
-        Duration = 5
-    })
+    -- Notify the player that the game is not found in the list
+    showNotification("Error", "Game script not found in the list.", 5)
 end
