@@ -1,6 +1,6 @@
 -- Game list with Game IDs (PlaceIds) and corresponding script URLs
 local gameList = {
-    [100902716985467] = "https://raw.githubusercontent.com/lumecraftor1/ScriptHub/main/Scripts/refs/heads/main/bee_master_simulator"  -- Bee Master Simulator
+    [100902716985467] = "https://raw.githubusercontent.com/lumecraftor1/Scripts/refs/heads/main/Bee%20master%20simulator"  -- Bee Master Simulator
 }
 
 -- Function to display notifications
